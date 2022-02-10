@@ -64,7 +64,15 @@ def Add(string_numbers):
     # Check for empty string
     
     if strip_string:
-        pass
+        if strip_string.startswith("/"):
+            # Finding delimiter
+            delimiter = strip_string[2]
+            number_list = strip_string.split(delimiter)
+            
+        else:
+            # with default ',' delimiter
+            number_list = strip_string.aplit(',')
+            
     else:
         return 0
 
