@@ -76,7 +76,7 @@ def Add(string_numbers):
             
         else:
             # with default ',' delimiter
-            number_list = strip_string.aplit(',')
+            number_list = strip_string.split(',')
         
         number_list = list(map(lambda x:int(x), number_list))
         
@@ -97,6 +97,13 @@ def Add(string_numbers):
 
 
 def Test_Function():
-    
-    pass
+    count=0
+    for test in tests:
+        count+=1
+        if Add(test["input"]["string"])== test["output"]:
+            
+            print(f"Test{count} is passed")
+        else:
+            print(f"Test{count} is failed")
 
+Test_Function()
