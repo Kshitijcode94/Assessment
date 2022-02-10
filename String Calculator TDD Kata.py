@@ -54,12 +54,32 @@ t7 = {
         "string":'//;-1;'
     },
     
-    "output": "Negative not allowed"
+    "output": "Negatives Not Allowed:[-1]"
 }
-
+t8 = {
+    "input": {
+       "string" : '-1,-2'
+    },
+    
+    "output": "Negatives Not Allowed:[-1, -2]"
+}
+t9 = {
+    "input": {
+       "string" : "//&\n1&2&3&\n5"
+    },
+    
+    "output": 11
+}
+t10 = {
+    "input": {
+       "string" : "\n1,2,3\n5,6,8"
+    },
+    
+    "output": 25
+}
 tests = []
 
-tests.extend([t1,t2,t3,t4,t5,t6,t7])
+tests.extend([t1,t2,t3,t4,t5,t6,t7,t8,t9,t10])
 
 # Function
 
@@ -89,7 +109,7 @@ def Add(string_numbers):
         negative_nums = list(filter(lambda x: x<0, number_list))
         
         if negative_nums:
-            return f"Negative not allowed"
+            return (f"Negatives Not Allowed:{negative_nums}")
         else:
             addition = sum(number_list)
             return addition
@@ -105,7 +125,7 @@ def Test_Function():
     count=0
     for test in tests:
         count+=1
-        if Add(test["input"]["string"])== test["output"]:
+        if Add(test["input"]["string"]) == test["output"]:
             
             print(f"Test{count} is passed")
         else:
