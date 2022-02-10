@@ -69,16 +69,19 @@ def Add(string_numbers):
     # Check for empty string
     
     if strip_string:
-        if strip_string.startswith("/"):
+        if strip_string.startswith("//"):
             # Finding delimiter
             delimiter = strip_string[2]
             number_list = strip_string.split(delimiter)
-            
+            number_list.pop(0)
         else:
             # Replace "\n" with ","
             new_stripped = strip_string.replace("\n",",")
             # with default ',' delimiter
             number_list = new_stripped.split(',')
+        
+        # Filtering if in case ther is '' element
+        number_list = list(filter(lambda x: bool(x), number_list))
         
         number_list = list(map(lambda x:int(x), number_list))
         
@@ -86,7 +89,7 @@ def Add(string_numbers):
         negative_nums = list(filter(lambda x: x<0, number_list))
         
         if negative_nums:
-            return f"Negatives not allowed"
+            return f"Negative not allowed"
         else:
             addition = sum(number_list)
             return addition
