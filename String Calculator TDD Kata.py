@@ -59,7 +59,14 @@ t7 = {
 # Function
 
 def Add(string_numbers):
-    pass
+    
+    strip_string = string_numbers.strip()
+    # Check for empty string
+    
+    if strip_string:
+        pass
+    else:
+        return 0
 
 
 
