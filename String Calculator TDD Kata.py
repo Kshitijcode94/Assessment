@@ -75,8 +75,10 @@ def Add(string_numbers):
             number_list = strip_string.split(delimiter)
             
         else:
+            # Replace "\n" with ","
+            new_stripped = strip_string.replace("\n",",")
             # with default ',' delimiter
-            number_list = strip_string.split(',')
+            number_list = new_stripped.split(',')
         
         number_list = list(map(lambda x:int(x), number_list))
         
