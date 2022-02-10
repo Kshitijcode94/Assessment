@@ -57,7 +57,9 @@ t7 = {
     "output": "Negative not allowed"
 }
 
+tests = []
 
+tests.extend([t1,t2,t3,t4,t5,t6,t7])
 
 # Function
 
@@ -93,4 +95,8 @@ def Add(string_numbers):
         return 0
 
 
+
+def Test_Function():
+    
+    pass
 
