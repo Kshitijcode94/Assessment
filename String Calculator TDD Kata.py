@@ -104,26 +104,24 @@ def Add(string_numbers):
         number_list = list(filter(lambda x: bool(x), number_list))
         
         number_list = list(map(lambda x:int(x), number_list))
-        
+    
 
         try:
             # Getting list of negative numbers if there any
             negative_nums = list(filter(lambda x: x<0, number_list))
             if negative_nums:
-                raise ValueError(f"Negatives not allowed string contains following negative numbers: {negative_nums}")
+                raise ValueError()
                 #return (f"Negatives Not Allowed:{negative_nums}")
             else:
                 addition = sum(number_list)
                 return addition
         except ValueError as msg:
-            print("Error: ", msg)
+            return f"Negatives Not Allowed:{negative_nums}"
         
             
             
     else:
         return 0
-
-
 
 def Test_Function():
     count=0
