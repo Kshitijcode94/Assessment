@@ -3,6 +3,9 @@
 
 # Test Cases
 
+from audioop import add
+
+
 t1 = {
     "input":{
         "string":""
@@ -72,6 +75,19 @@ def Add(string_numbers):
         else:
             # with default ',' delimiter
             number_list = strip_string.aplit(',')
+        
+        number_list = list(map(lambda x:int(x), number_list))
+        
+        # Getting list of negative numbers if there any
+        negative_nums = list(filter(lambda x: x<0, number_list))
+        
+        if negative_nums:
+            return f"Negatives not allowed"
+        else:
+            addition = sum(number_list)
+            return addition
+                
+        
             
     else:
         return 0
